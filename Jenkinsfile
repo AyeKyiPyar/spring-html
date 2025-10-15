@@ -1,21 +1,18 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'Maven_3.9'    // Must match your Jenkins Maven installation name
-        jdk 'JDK_21'         // Must match your Jenkins JDK installation name
-    }
+ 
 
     environment {
         APP_JAR = "target/Spring-Html-0.0.1-SNAPSHOT.jar"
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/AyeKyiPyar/spring-html.git'
-            }
-        }
+       stage('Checkout') {
+		    steps {
+		        git branch: 'main', url: 'https://github.com/AyeKyiPyar/spring-html.git'
+		    }
+		}
 
         stage('Build') {
             steps {
