@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven_3.9'   // Name of Maven installed in Jenkins
-        jdk 'JDK_21'        // Name of JDK installed in Jenkins
+        maven 'Maven_3.9'    // Must match your Jenkins Maven installation name
+        jdk 'JDK_21'         // Must match your Jenkins JDK installation name
     }
 
     environment {
@@ -31,15 +31,16 @@ pipeline {
 
         stage('Run') {
             steps {
-                echo "Running Spring Boot application..."
-                bat "nohup java -jar ${APP_JAR} > app.log 2>&1 &"
+                echo "Starting Spring Boot application..."
+                // Run jar in background on Windows
+                bat 'start cmd /c "java -jar target\\Spring-Html-0.0.1-SNAPSHOT.jar > app.log 2>&1"'
             }
         }
     }
 
     post {
         always {
-            echo 'Pipeline finished.'
+            echo '✅ Pipeline finished.'
         }
     }
 }
