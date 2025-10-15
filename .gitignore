@@ -1,8 +1,11 @@
 HELP.md
+
+# Ignore everything under target/
 target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+
+# But keep JARs inside target/
+!target/*.jar
+
 
 ### STS ###
 .apt_generated
