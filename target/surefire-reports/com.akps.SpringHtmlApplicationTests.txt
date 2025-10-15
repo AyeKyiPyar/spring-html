@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.akps.SpringHtmlApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.229 s -- in com.akps.SpringHtmlApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.757 s -- in com.akps.SpringHtmlApplicationTests
