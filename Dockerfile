@@ -10,7 +10,7 @@ LABEL maintainer = "javaguides.net"
 ADD target/Spring-Html-0.0.1-SNAPSHOT.jar Spring-Html.jar
  
 # Step 4 : Expose the port your application will run on
-EXPOSE 8081
+EXPOSE 8080
 
 # Step 5: Speciry the command to run the application
 ENTRYPOINT ["java", "-jar", "Spring-Html.jar"]
