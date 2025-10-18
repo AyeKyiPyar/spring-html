@@ -33,16 +33,16 @@ pipeline {
             }
         }
 
-        stage('Push Docker Image') {
-            steps {
-                script {
-                    docker.withRegistry('https://index.docker.io/v1/', DOCKER_CREDENTIALS_ID) {
-                        bat "docker push ${DOCKER_REPO}:${env.IMAGE_TAG}"
-                        bat "docker push ${DOCKER_REPO}:latest"
-                    }
-                }
-            }
-        }
+       tage('Push Docker Image') {
+		    steps {
+		        echo "Pushing Docker image..."
+		        bat """
+		        docker login -u kyipyar -p zxcvAkps
+		        docker push ${DOCKER_REPO}:${env.IMAGE_TAG}
+		        docker push ${DOCKER_REPO}:latest
+		        """
+		    }
+		}
 
        stage('Run Docker Container') {
 		    steps {
