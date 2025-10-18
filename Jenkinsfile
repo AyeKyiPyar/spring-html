@@ -57,15 +57,15 @@ pipeline {
 
     }
 
-    post {
-        always {
-            echo "✅ Pipeline finished."
-        }
-        success {
-            echo "Pipeline succeeded! Docker image: ${DOCKER_REPO}:${env.IMAGE_TAG}"
-        }
-        failure {
-            echo "Pipeline failed."
-        }
-    }
+	 post {
+	        always {
+	            echo "✅ Pipeline finished."
+	        }
+	        success {
+	            echo "Pipeline succeeded! App running at http://localhost:%HOST_PORT%"
+	        }
+	        failure {
+	            echo "Pipeline failed."
+	        }
+	    }
 }
