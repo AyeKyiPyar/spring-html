@@ -5,7 +5,7 @@ pipeline {
         DOCKER_REPO = "kyipyar/spring-html"
         APP_JAR = "target\\Spring-Html-0.0.1-SNAPSHOT.jar"
         DOCKER_CREDENTIALS_ID = "dockerhub-credentials"
-         DOCKER_HOST_PORT = "8081"
+        DOCKER_HOST_PORT = "8081"
     }
 
     stages {
@@ -52,7 +52,7 @@ pipeline {
 	            echo "✅ Pipeline finished."
 	        }
 	        success {
-	           echo "Pipeline succeeded! App running at http://localhost:${env.HOST_PORT}/"
+	           echo "Pipeline succeeded! App running at http://localhost:${env.DOCKER_HOST_PORT}/"
 	        }
 	        failure {
 	            echo "Pipeline failed."
