@@ -52,7 +52,7 @@ pipeline {
 	            echo "✅ Pipeline finished."
 	        }
 	        success {
-	            echo "Pipeline succeeded! App running at http://localhost:%HOST_PORT%"
+	           echo "Pipeline succeeded! App running at http://localhost:${env.HOST_PORT}/"
 	        }
 	        failure {
 	            echo "Pipeline failed."
