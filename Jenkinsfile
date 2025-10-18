@@ -33,7 +33,7 @@ pipeline {
             }
         }
 
-       tage('Push Docker Image') {
+       stage('Push Docker Image') {
 		    steps {
 		        echo "Pushing Docker image..."
 		        bat """
