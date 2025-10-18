@@ -5,7 +5,7 @@ pipeline {
         DOCKER_REPO = "kyipyar/spring-html"
         APP_JAR = "target\\Spring-Html-0.0.1-SNAPSHOT.jar"
         DOCKER_CREDENTIALS_ID = "dockerhub-credentials"
-        DOCKER_HOST_PORT = "8082"
+        DOCKER_HOST_PORT = "8081"
     }
 
     stages {
@@ -40,7 +40,7 @@ pipeline {
 		        bat """
 		            docker stop spring-html || true
 		            docker rm spring-html || true
-		            docker run -d --name spring-html -p 8082:8080 ${DOCKER_REPO}:${env.IMAGE_TAG}
+		            docker run -d --name spring-html -p 8081:8080 ${DOCKER_REPO}:${env.IMAGE_TAG}
 		        """
 		    }
 		}
