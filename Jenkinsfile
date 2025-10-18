@@ -26,8 +26,8 @@ pipeline {
                 script {
                     // Build Docker image and tag it with build number
                     def imageTag = "${env.BUILD_NUMBER}"
-                    sh "docker build -t ${DOCKER_REPO}:${imageTag} ."
-                    sh "docker tag ${DOCKER_REPO}:${imageTag} ${DOCKER_REPO}:latest"
+                    bat "docker build -t ${DOCKER_REPO}:${imageTag} ."
+                    bat "docker tag ${DOCKER_REPO}:${imageTag} ${DOCKER_REPO}:latest"
                     env.IMAGE_TAG = imageTag
                 }
             }
@@ -37,8 +37,8 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', DOCKER_CREDENTIALS_ID) {
-                        sh "docker push ${DOCKER_REPO}:${env.IMAGE_TAG}"
-                        sh "docker push ${DOCKER_REPO}:latest"
+                        bat "docker push ${DOCKER_REPO}:${env.IMAGE_TAG}"
+                        bat "docker push ${DOCKER_REPO}:latest"
                     }
                 }
             }
@@ -47,7 +47,7 @@ pipeline {
        stage('Run Docker Container') {
 		    steps {
 		        echo "Running container locally (port 8081)..."
-		        sh """
+		        bat """
 		            docker stop spring-html || true
 		            docker rm spring-html || true
 		            docker run -d --name spring-html -p 8081:8080 ${DOCKER_REPO}:${env.IMAGE_TAG}
