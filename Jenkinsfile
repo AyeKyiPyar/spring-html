@@ -33,17 +33,7 @@ pipeline {
             }
         }
 
-       stage('Push Docker Image') {
-		    steps {
-		        echo "Pushing Docker image..."
-		        bat """
-		        docker login -u kyipyar -p zxcvAkps
-		        docker push ${DOCKER_REPO}:${env.IMAGE_TAG}
-		        docker push ${DOCKER_REPO}:latest
-		        """
-		    }
-		}
-
+       
        stage('Run Docker Container') {
 		    steps {
 		        echo "Running container locally (port 8081)..."
