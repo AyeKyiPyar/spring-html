@@ -1,5 +1,6 @@
 # Step 1 : use an official Java runtime as the base image
-FROM openjdk:21
+# FROM openjdk:21
+FROM eclipse-temurin:21-jdk
 
 # Step 2 : Set the working directory inside the contAainer
 WORKDIR /app
